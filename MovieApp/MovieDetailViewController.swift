@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 class MovieDetailViewController: UIViewController {
     
     var movieDetail = MovieDetail()
@@ -41,7 +41,8 @@ class MovieDetailViewController: UIViewController {
         
         if let posterURL = movieDetail.backdrop {
             let imgUrl = "https://image.tmdb.org/t/p/w500" + posterURL
-            backgroundImageView.downloaded(from: imgUrl)
+            let url = URL(string: imgUrl)
+            backgroundImageView.kf.setImage(with: url)
         } else {
             backgroundImageView.image = UIImage(named: "noImage")
         }

@@ -92,7 +92,8 @@ class MovieTableViewController: UITableViewController {
 
         if let posterURL = movie.poster {
             let imgUrl = "https://image.tmdb.org/t/p/w500" + posterURL
-            cell.posterImage.downloaded(from: imgUrl)
+            let url = URL(string: imgUrl)
+            cell.posterImage.kf.setImage(with: url)
         } else {
             cell.posterImage.image = UIImage(named: "NoPoster")
         }
